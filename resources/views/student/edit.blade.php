@@ -51,7 +51,7 @@
                 <div class="card-header">{{ __('Edit Student') }}</div>
 
                 <div class="card-body">
-                    <form action="{{route('student.update',$student->id)}}" method="POST">
+                    <form action="{{route('student.update',$student->id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">
@@ -113,8 +113,8 @@
                             <label for="picture" class="col-md-4 col-form-label text-md-right">{{ __('Picture') }}</label>
 
                             <div class="col-md-6">
-                                <input id="picture" type="picture" class="form-control @error('picture') is-invalid @enderror" name="picture" value="{{$student->picture}}" required autocomplete="decription">
-
+                                {{-- <input id="picture" type="picture" class="form-control @error('picture') is-invalid @enderror" name="picture" value="{{$student->picture}}" required autocomplete="decription"> --}}
+                                <input type="file" id="myFile" name="picture">
                                 @error('picture')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -136,9 +136,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                     
-
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

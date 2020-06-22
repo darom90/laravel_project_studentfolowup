@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Position;
+use App\User;
 class studentController extends Controller
 {
     /**
@@ -41,7 +43,17 @@ class studentController extends Controller
         $student -> lastName=$request->get('lastName');
         $student -> class=$request->get('class');
         $student -> decription=$request->get('decription');
-        $student -> picture=$request->get('picture');
+        // $student -> picture=$request->get('picture');
+        if($request->picture == null){
+            $student -> picture = "student.png";
+        }else {
+            request()->validate([
+                'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $imageName = time().'.'.request()->picture->getClientOriginalExtension();
+            request()->picture->move(public_path('/img_student/'), $imageName);
+            $student -> picture = $imageName;
+        }
         $student -> activefolowup=$request->get('activefolowup');
         $student ->save();
         return redirect('student');
@@ -85,7 +97,17 @@ class studentController extends Controller
         $student -> lastName=$request->get('lastName');
         $student -> class=$request->get('class');
         $student -> decription=$request->get('decription');
-        $student -> picture=$request->get('picture');
+        // $student -> picture=$request->get('picture');
+        if($request->picture == null){
+            $student -> picture = "student.png";
+        }else {
+            request()->validate([
+                'picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            ]);
+            $imageName = time().'.'.request()->picture->getClientOriginalExtension();
+            request()->picture->move(public_path('/img_student/'), $imageName);
+            $student -> picture = $imageName;
+        }
         $student -> activefolowup=$request->get('activefolowup');
         $student ->save();
         // return redirect('students');
