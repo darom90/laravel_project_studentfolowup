@@ -31,7 +31,7 @@
     </thead>
  
     @foreach ( $student as $item)
-    --}}
+    
    
         
  
