@@ -9,8 +9,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 
@@ -26,6 +25,7 @@
             <th>Decription</th>
             <th>Picture</th>
             <th>IAvartactive</th>
+            <th>Comment</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -44,8 +44,7 @@
             <td>{{$item->decription}}</td>
             <td><img src="{{asset('img_student/'.$item->picture)}}" width="50" height="50" style="border-radius:25px;" alt=""></td>
             <td>{{$item->activefolowup}}</td>
-            
-            
+            <td><a href="{{route('showcomment',$item->id)}}">show comment</a></td>
             <td>
                {{-- <button type="submit" class="btn btn-success" ><a href="{{route('student.edit',$item->id)}}" >Edit</a></button>  --}}
                <a href="{{route('student.edit',$item->id)}}" ><span class="material-icons">add_circle</span></a>

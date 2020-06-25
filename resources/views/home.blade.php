@@ -28,11 +28,11 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    ID: {{ Auth::user()->id }} <span class="caret"></span>
+                    {{-- ID: {{ Auth::user()->id }} <span class="caret"></span>
                    <br>
                    Name: {{ Auth::user()->firstName }} <span class="caret"></span>
                    <br>
-                   Email: {{ Auth::user()->email }} <span class="caret"></span>
+                   Email: {{ Auth::user()->email }} <span class="caret"></span> --}}
                    
                 </div>
                 

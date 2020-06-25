@@ -39,3 +39,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('student','studentController');
 Route::get('/index','studentController@index')->name('index');
+Route::resource('comment','CommentController');
+Route::get('/showcomment/{id}','CommentController@showcomment')->name('showcomment');
+Route::get('/showformcomment/{id}','CommentController@showformcomment')->name('showformcomment');
+
+Route::PUT('/storecomment/{id}','CommentController@storecomment')->name('storecomment');
